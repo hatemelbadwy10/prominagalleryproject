@@ -28,6 +28,16 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  flutter_screenutil: ^5.9.0
+  flutter_bloc: ^8.1.5
+  permission_handler: ^8.3.0
+  path_provider: ^2.0.7
+  flutter_image_compress: ^1.1.0
+  shared_preferences: ^2.2.2
+  image_picker: ^0.8.4+4
+  get_it: ^7.2.0
+  dio: ^5.4.2+1
+
   flutter:
     sdk: flutter
 
@@ -59,8 +69,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -74,10 +84,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Segoe
+      fonts:
+        - asset: assets/fonts/Segoe UI.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

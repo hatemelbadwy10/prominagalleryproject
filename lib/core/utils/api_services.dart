@@ -27,7 +27,7 @@ class ApiServices{
         throw Exception('Failed to load images');
       }
     } catch (e) {
-      print('Error fetching images: $e');
+      print('Error fetching images');
       throw Exception('Failed to load images');
     }
   }

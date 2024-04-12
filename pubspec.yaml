@@ -33,6 +33,7 @@ dependencies:
   permission_handler: ^8.3.0
   path_provider: ^2.0.7
   flutter_image_compress: ^1.1.0
+  email_validator: ^2.1.17
   shared_preferences: ^2.2.2
   image_picker: ^0.8.4+4
   get_it: ^7.2.0

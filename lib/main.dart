@@ -1,39 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prominaagencygalleryproject/core/utils/themes.dart';
+import 'package:prominaagencygalleryproject/core/utils/cache_helper.dart';
 import 'package:prominaagencygalleryproject/features/home/presentation/views/home_view.dart';
+import 'package:prominaagencygalleryproject/features/login/presentation/views/login_view.dart';
 
-import 'core/utils/cache_helper.dart';
 import 'core/utils/service_locator.dart';
-import 'features/login/presentation/views/login_view.dart';
 
-void main()  async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupServiceLocator();
-  CacheHelper.init();
-  bool isFirstTime = await CacheHelper.checkFirstSeen();
+  await CacheHelper.init();
 
-  runApp( GalleryApp(isFirstTime: isFirstTime));
+
+  runApp(const GalleryApp());
 }
 
 class GalleryApp extends StatelessWidget {
-  final bool isFirstTime;
-  const GalleryApp({super.key, required this.isFirstTime});
+
+  const GalleryApp({super.key, });
+
   @override
   Widget build(BuildContext context) {
-  print('====================');
-  print(CacheHelper.getToken().toString() );
-  print('====================');
-  return  ScreenUtilInit(
-    designSize: const Size(463, 926),
+    return ScreenUtilInit(
+      designSize: const Size(463, 926),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: theme(context),
-        home: isFirstTime ? const LoginView() : const HomeView(),
-      ));
+        // Check if the user has logged out, if so, show the login view
+        // Otherwise, show the appropriate view based on the login status
+        home: CacheHelper.getToken().isNotEmpty? const HomeView(): const LoginView(),
+      ),
+    );
   }
-
-
-
-
 }

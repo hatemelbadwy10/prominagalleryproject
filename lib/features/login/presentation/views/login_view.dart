@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:prominaagencygalleryproject/features/login/manger/auth_cubit.dart';
 import 'package:prominaagencygalleryproject/features/login/presentation/views/widgets/login_view_body.dart';
+
+import '../manger/auth_cubit.dart';
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
@@ -13,7 +14,7 @@ class LoginView extends StatelessWidget {
         return AuthCubit();
       },
       child: const Scaffold(
-        resizeToAvoidBottomInset: false,
+        // resizeToAvoidBottomInset: false,
 
         body: LoginViewBody(),
       ),

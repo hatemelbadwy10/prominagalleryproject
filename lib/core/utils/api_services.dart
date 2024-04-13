@@ -16,18 +16,14 @@ class ApiServices{
         ),
       );
 
-      print('++++++ REQUEST SENT ++++++');
 
       if (response.statusCode == 200) {
-        print(response.data);
         Map<String, dynamic> images = Map<String, dynamic>.from(response.data);
         return images;
       } else {
-        print('Request failed with status: ${response.statusCode}');
         throw Exception('Failed to load images');
       }
     } catch (e) {
-      print('Error fetching images');
       throw Exception('Failed to load images');
     }
   }

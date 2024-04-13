@@ -6,12 +6,7 @@ class CacheHelper {
 
   static Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
-
   }
-
-
-
-
 
   static String getToken() {
     return _prefs.getString(_tokenKey) ?? "";
@@ -21,7 +16,6 @@ class CacheHelper {
     await init();
     await _prefs.setString(_tokenKey, token);
   }
-
 
   static Future removeLoginData() async {
     await _prefs.clear();
